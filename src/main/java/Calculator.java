@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Calculator {
 
@@ -8,12 +9,27 @@ public class Calculator {
         }
         else if(text.contains(",")){
             String[] commaSeperated = text.split(",");
-            return Integer.parseInt(commaSeperated[0])+Integer.parseInt(commaSeperated[1]);
+            int[] arr = Arrays.stream(commaSeperated).mapToInt(Integer::parseInt).toArray();
+            return sumofNnumbers(arr);
 
         }
         else{
-            return Integer.parseInt(text);
+            return toInt(text);
         }
+    }
+
+    private static int sumofNnumbers(int[] arr) {
+        int sum=0;
+        for(int i = 0; i< Arrays.stream(arr).count(); i++)
+        {
+            sum=arr[i]>1000?sum:sum+arr[i];
+
+        }
+        return sum;
+    }
+
+    private static int toInt(String text) throws NumberFormatException {
+        return Integer.parseInt(text);
     }
 
 }

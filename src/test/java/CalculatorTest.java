@@ -4,19 +4,24 @@ import static org.junit.Assert.assertEquals;
 
 public class CalculatorTest {
     @Test
-    public void shouldReturnZeroIfEmptyString() throws Exception{
+    public void returnZeroIfEmptyString() throws Exception{
         int value=Calculator.add("");
         assertEquals(0,value);
     }
     @Test
-    public void shouldReturnNumberOneIfOneNumber() throws Exception{
+    public void returnNumberOneIfOneNumber() throws Exception{
         int value=Calculator.add("1");
         assertEquals(1,value);
     }
 
     @Test
-    public void shouldReturnSumOfTwoNumbers() throws Exception{
+    public void returnSumOfTwoNumbers() throws Exception{
         int value = Calculator.add("1,2");
         assertEquals(3,value);
+    }
+    @Test
+    public void returnSumOfMultipleNumbers() throws Exception{
+        int value = Calculator.add("1,2,3");
+        assertEquals(6,value);
     }
 }
